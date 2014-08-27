@@ -32,11 +32,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="Home">Home</a></li>
-            @* nog even uitzoeken die actionlink 
-              <li> @Html.ActionLink("Home","Home")"></li>*@
-            <li><a href="Event">Events</a></li>
-            <li><a href="Result">Results</a></li>
+            
+            @* nog even uitzoeken die actionlink *@
+            <li> @Html.ActionLink("Home","index","Home")</li>
+            <li> @Html.ActionLink("Events","index","Event")</li>
+            <li>@Html.ActionLink("Results","index","Result")</li>
             <li><a href="Teams">Teams</a></li>
           </ul>
         </div><!--/.nav-collapse -->
