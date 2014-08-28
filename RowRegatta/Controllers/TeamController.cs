@@ -9,108 +9,107 @@ using RowRegattaTracker.Models;
 
 namespace RowRegatta.Controllers
 {
-    public class RaceController : Controller
+    public class TeamController : Controller
     {
         private RowRegattaTrackerDbContext db = new RowRegattaTrackerDbContext();
 
         //
-        // GET: /Race/
+        // GET: /Team/
 
         public ActionResult Index()
         {
-            return View(db.Races.ToList());
+            return View(db.Teams.ToList());
         }
 
         //
-        // GET: /Race/Details/5
+        // GET: /Team/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Race race = db.Races.Find(id);
-            if (race == null)
+            Team team = db.Teams.Find(id);
+            if (team == null)
             {
                 return HttpNotFound();
             }
-            return View(race);
+            return View(team);
         }
 
         //
-        // GET: /Race/Create
+        // GET: /Team/Create
 
         public ActionResult Create()
         {
-            ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name"); 
             return View();
         }
 
         //
-        // POST: /Race/Create
+        // POST: /Team/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Race race)
+        public ActionResult Create(Team team)
         {
             if (ModelState.IsValid)
             {
-                db.Races.Add(race);
+                db.Teams.Add(team);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name"); 
-            return View(race);
+
+            return View(team);
         }
 
         //
-        // GET: /Race/Edit/5
+        // GET: /Team/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Race race = db.Races.Find(id);
-            if (race == null)
+            Team team = db.Teams.Find(id);
+            if (team == null)
             {
                 return HttpNotFound();
             }
-            return View(race);
+            return View(team);
         }
 
         //
-        // POST: /Race/Edit/5
+        // POST: /Team/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Race race)
+        public ActionResult Edit(Team team)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(race).State = EntityState.Modified;
+                db.Entry(team).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(race);
+            return View(team);
         }
 
         //
-        // GET: /Race/Delete/5
+        // GET: /Team/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Race race = db.Races.Find(id);
-            if (race == null)
+            Team team = db.Teams.Find(id);
+            if (team == null)
             {
                 return HttpNotFound();
             }
-            return View(race);
+            return View(team);
         }
 
         //
-        // POST: /Race/Delete/5
+        // POST: /Team/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Race race = db.Races.Find(id);
-            db.Races.Remove(race);
+            Team team = db.Teams.Find(id);
+            db.Teams.Remove(team);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

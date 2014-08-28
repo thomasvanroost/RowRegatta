@@ -5,112 +5,112 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using RowRegatta.Models;
 using RowRegattaTracker.Models;
 
 namespace RowRegatta.Controllers
 {
-    public class RaceController : Controller
+    public class ResultController : Controller
     {
         private RowRegattaTrackerDbContext db = new RowRegattaTrackerDbContext();
 
         //
-        // GET: /Race/
+        // GET: /Result/
 
         public ActionResult Index()
         {
-            return View(db.Races.ToList());
+            return View(db.Results.ToList());
         }
 
         //
-        // GET: /Race/Details/5
+        // GET: /Result/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Race race = db.Races.Find(id);
-            if (race == null)
+            Result result = db.Results.Find(id);
+            if (result == null)
             {
                 return HttpNotFound();
             }
-            return View(race);
+            return View(result);
         }
 
         //
-        // GET: /Race/Create
+        // GET: /Result/Create
 
         public ActionResult Create()
         {
-            ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name"); 
             return View();
         }
 
         //
-        // POST: /Race/Create
+        // POST: /Result/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Race race)
+        public ActionResult Create(Result result)
         {
             if (ModelState.IsValid)
             {
-                db.Races.Add(race);
+                db.Results.Add(result);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name"); 
-            return View(race);
+
+            return View(result);
         }
 
         //
-        // GET: /Race/Edit/5
+        // GET: /Result/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Race race = db.Races.Find(id);
-            if (race == null)
+            Result result = db.Results.Find(id);
+            if (result == null)
             {
                 return HttpNotFound();
             }
-            return View(race);
+            return View(result);
         }
 
         //
-        // POST: /Race/Edit/5
+        // POST: /Result/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Race race)
+        public ActionResult Edit(Result result)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(race).State = EntityState.Modified;
+                db.Entry(result).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(race);
+            return View(result);
         }
 
         //
-        // GET: /Race/Delete/5
+        // GET: /Result/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Race race = db.Races.Find(id);
-            if (race == null)
+            Result result = db.Results.Find(id);
+            if (result == null)
             {
                 return HttpNotFound();
             }
-            return View(race);
+            return View(result);
         }
 
         //
-        // POST: /Race/Delete/5
+        // POST: /Result/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Race race = db.Races.Find(id);
-            db.Races.Remove(race);
+            Result result = db.Results.Find(id);
+            db.Results.Remove(result);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
