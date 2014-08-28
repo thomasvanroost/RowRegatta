@@ -8,9 +8,9 @@
     </title>
 
     <!-- Bootstrap -->
-    @*<link href="css/bootstrap.min.css" rel="stylesheet"> *@
     <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
-
+    <link href="@Url.Content("~/Content/themes/base/theme.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/themes/base/datepicker.css")" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,14 +44,26 @@
     </div>
     
       <div class="container">
-     <h1>Row Regatta Tracker</h1>
+     
 
 
       @RenderBody()
       </div>
+            
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery-2.1.1.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.11.1.js")"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+@*    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>*@
+@*    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>  *@
+
+      <script>
+          $(function () { // will trigger when the document is ready
+              $('.datepicker').datepicker({
+                  format: "dd/mm/yy" //nog uitzoeken
+              }); //Initialise any date pickers
+          });
+      </script>
+
   </body>
 </html>
