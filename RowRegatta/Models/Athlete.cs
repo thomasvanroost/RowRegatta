@@ -5,9 +5,9 @@ using System.Text;
 
 namespace RowRegattaTracker.Models
 {
-    public class Person
+    public class Athlete
     {
-        public Int32 PersonID { get; set; }
+        public Int32 AthleteID { get; set; }
         public String Name { get; set; }
     }
 }

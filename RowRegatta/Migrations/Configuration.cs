@@ -1,6 +1,8 @@
 namespace RowRegatta.Migrations
 {
+    using RowRegattaTracker.Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -26,6 +28,26 @@ namespace RowRegatta.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Events.AddOrUpdate(
+                e => e.Name,
+                new Event { Name = "Masters WorldChampionship", Description = "Wereld Kampioenschap voor Master roeiers vanaf 27 jaar.", Location = "Hazelwinkel, Belgie", StartTime = new DateTime(2014, 6, 10), EndTime = new DateTime(2014, 6, 12)},
+                new Event { Name = "Juniours Europeen Championship", Description="Europees kampioenschap voor roeiers van 12 - 27 jaar", Location = "Watersportbaan, Belgie" }
+                //new Event 
+                //{ 
+                //    Name = "Europees Kampioenschap", 
+                //    Description="Europeens Kampioenschap voor alle klassen", 
+                //    Location = "Bosbaan, Nederland"
+                //    // Race aanmaken binnen een event.
+                //    // Race = 
+                //    //    new List<Race>{
+                //    //        new Race { Categories = new List<Category> = new Category{ Name = "M1x"} , Start=2/10/2014 0;00;00, };
+                //    //    }  
+                //}
+
+                );
+       
+
         }
     }
 }
