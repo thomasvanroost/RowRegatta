@@ -38,11 +38,11 @@
             @Html.ValidationMessageFor(model => model.Location)
         </div>
 
-        <div class="editor-label">
+        <div class="editor-label" >
             @Html.LabelFor(model => model.StartTime)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.StartTime)
+            @Html.TextBoxFor(model => model.StartTime, new { @class = "datepicker" })
             @Html.ValidationMessageFor(model => model.StartTime)
         </div>
 
@@ -50,7 +50,7 @@
             @Html.LabelFor(model => model.EndTime)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EndTime)
+            @Html.TextBoxFor(model => model.EndTime, new { @class = "datepicker" })
             @Html.ValidationMessageFor(model => model.EndTime)
         </div>
 
@@ -63,6 +63,13 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script>
+          $(function () { // will trigger when the document is ready
+              alert("test");
+              $('.datepicker').datepicker(); //Initialise any date pickers
+          });
+      </script>
 
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
