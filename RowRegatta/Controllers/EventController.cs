@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using RowRegattaTracker.Models;
 
-namespace RowRegatta.Controllers
+namespace RowRegatta.Models
 {
     public class EventController : Controller
     {
@@ -36,7 +36,7 @@ namespace RowRegatta.Controllers
 
         //
         // GET: /Event/Create
-
+        [Authorize(Roles="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -61,7 +61,7 @@ namespace RowRegatta.Controllers
 
         //
         // GET: /Event/Edit/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id = 0)
         {
             Event events = db.Events.Find(id);
@@ -90,7 +90,7 @@ namespace RowRegatta.Controllers
 
         //
         // GET: /Event/Delete/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id = 0)
         {
             Event events = db.Events.Find(id);

@@ -36,7 +36,7 @@ namespace RowRegatta.Controllers
 
         //
         // GET: /Race/Create
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name"); 
@@ -62,7 +62,7 @@ namespace RowRegatta.Controllers
 
         //
         // GET: /Race/Edit/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id = 0)
         {
             Race race = db.Races.Find(id);
@@ -70,6 +70,7 @@ namespace RowRegatta.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name");
             return View(race);
         }
 
@@ -86,12 +87,13 @@ namespace RowRegatta.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Category = new SelectList(db.Categories, "CategoryID", "Name");
             return View(race);
         }
 
         //
         // GET: /Race/Delete/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id = 0)
         {
             Race race = db.Races.Find(id);

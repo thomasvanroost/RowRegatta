@@ -9,5 +9,6 @@ namespace RowRegattaTracker.Models
     {
         public Int32 AthleteID { get; set; }
         public String Name { get; set; }
+        public virtual Int32 TeamID { get; set; }
     }
 }

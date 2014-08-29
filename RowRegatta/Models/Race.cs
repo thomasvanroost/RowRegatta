@@ -9,10 +9,11 @@ namespace RowRegattaTracker.Models
     public class Race
     {
         public Int32 RaceID { get; set; }
-        public String Category { get; set; }
-        public DateTime Start { get; set; }
-        public Category Categories { get; set; }
+        public DateTime? Start { get; set; }
+        public Int32 CategoryID { get; set; }
         public Int32 EventID { get; set; }
+        public ICollection<Event> Events { get; set; }
+
         public List<Result> Results { get; set; }
     }
 }

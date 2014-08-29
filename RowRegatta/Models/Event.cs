@@ -18,6 +18,8 @@ namespace RowRegattaTracker.Models
         
         [DataType(DataType.Date)]
         public DateTime? EndTime { get; set; }
-        public List<Race> Race { get; set; }
+
+        //public virtual Race Race { get; set; }
+        public List<Race> Races { get; set; }
     }
 }

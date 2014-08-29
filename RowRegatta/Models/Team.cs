@@ -11,6 +11,6 @@ namespace RowRegattaTracker.Models
         public String Name { get; set; }
         public String Country { get; set; }
         public String Couch { get; set; }
-        //public List<Person> Members { get; set;}
+        public List<Athlete> Athlete { get; set;}
     }
 }

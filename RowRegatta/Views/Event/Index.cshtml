@@ -37,9 +37,12 @@
             @Html.DisplayFor(modelItem => item.Location)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
+            @if (Request.IsAuthenticated){} @* links verbergen wanneer niet ingelogd *@
+            @Html.ActionLink("Edit", "Edit", new { id=item.EventID })  |
+                                                                  
             @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
+            
         </td>
     </tr>
 }

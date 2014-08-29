@@ -46,6 +46,18 @@ namespace RowRegatta.Migrations
                 //}
 
                 );
+
+            context.Categories.AddOrUpdate(
+                c => c.Name,
+                new Category { Name = "M1x" },
+                new Category { Name = "D1x" },
+                new Category { Name = "M2x" },
+                new Category { Name = "D2x" },
+                new Category { Name = "M4x" },
+                new Category { Name = "D4x" },
+                new Category { Name = "M4-" },
+                new Category { Name = "D4-" }
+                );
        
 
         }
