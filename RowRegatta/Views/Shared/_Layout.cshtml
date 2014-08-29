@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title 
+    <title>Row Regatta Tracker - @ViewBag.Title 
     </title>
 
     <!-- Bootstrap -->
@@ -29,7 +29,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Row Regatta Tracker</a>
+            <a href="/Home" class="navbar-brand">Row Regatta Tracker</a>
+          
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -37,20 +38,17 @@
             @* nog even uitzoeken die actionlink *@
             <li> @Html.ActionLink("Home","index","Home")</li>
             <li> @Html.ActionLink("Events","index","Event")</li>
+            <li> @Html.ActionLink("Races","index","Race")</li>
             <li>@Html.ActionLink("Results","index","Result")</li>
-            <li><a href="Teams">Teams</a></li>
+            <li>@Html.ActionLink("Teams","index","Team")</li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>  
-    <div class"jumbotron">
-      <div class="container">
-     
-
-
+    <div class="container">
+        ::before
       @RenderBody()
-      </div>
-    </di>        
+    </div>        
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="@Url.Content("~/Scripts/jquery-2.1.1.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui-1.11.1.js")"></script>
@@ -58,14 +56,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 @*    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>*@
 @*    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.js")"></script>  *@
-
-      <script>
-          $(function () { // will trigger when the document is ready
-              $('.datepicker').datepicker({
-                  format: "dd/mm/yy" //nog uitzoeken
-              }); //Initialise any date pickers
-          });
-      </script>
+      @RenderSection("Scripts", false)
+      
 
   </body>
 </html>

@@ -1,0 +1,36 @@
+﻿@model RowRegatta.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Result</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RaceID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RaceID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TeamID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RaceTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RaceTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ResultID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -6,20 +6,22 @@
 }
 
 <h2>Create</h2>
-
-@using (Html.BeginForm()) {
+<div class="form">
+@using (Html.BeginForm() ) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
+    <fieldset class="">
         <legend>Event</legend>
 
+        <div class="form-group">
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Name)
             @Html.ValidationMessageFor(model => model.Name)
+        </div>
         </div>
 
         <div class="editor-label">
@@ -53,9 +55,9 @@
             @Html.TextBoxFor(model => model.EndTime, new { @class = "datepicker" })
             @Html.ValidationMessageFor(model => model.EndTime)
         </div>
-
+        <br />
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Create" class="btn btn-succes" />
         </p>
     </fieldset>
 }
@@ -63,14 +65,16 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+</div>
 
-<script>
-          $(function () { // will trigger when the document is ready
-              alert("test");
-              $('.datepicker').datepicker(); //Initialise any date pickers
-          });
-      </script>
-
-@*@section Scripts {
+@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}*@
+
+    <script>
+        $(function () { // will trigger when the document is ready
+            $('.datepicker').datepicker({
+                format: "dd/mm/yy" //nog uitzoeken
+            }); //Initialise any date pickers
+        });
+      </script>
+}

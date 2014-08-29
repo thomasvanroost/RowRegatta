@@ -1,8 +1,7 @@
-﻿@model RowRegattaTracker.Models.Race
+﻿@model RowRegattaTracker.Models.Team
 
 @{
     ViewBag.Title = "Create";
-    
 }
 
 <h2>Create</h2>
@@ -12,30 +11,30 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Race</legend>
+        <legend>Team</legend>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.CategoryID)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.DropDownList("Category", String.Empty)
-            @Html.ValidationMessageFor(model => model.CategoryID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Start)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Start)
-            @Html.ValidationMessageFor(model => model.Start)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.EventID)
+            @Html.LabelFor(model => model.Country)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EventID)
-            @Html.ValidationMessageFor(model => model.EventID)
+            @Html.EditorFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Couch)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Couch)
+            @Html.ValidationMessageFor(model => model.Couch)
         </div>
 
         <p>
@@ -48,6 +47,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@*@section Scripts {
+@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}*@
+}

@@ -1,0 +1,40 @@
+﻿@model RowRegatta.Models.Result
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Result</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RaceID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RaceID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TeamID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TeamID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RaceTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RaceTime)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

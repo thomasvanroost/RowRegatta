@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<RowRegattaTracker.Models.Race>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Races";
 }
-
-<h2>Index</h2>
+<div class="container">
+::before
+<h2>Races</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.CategoryID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Start)
@@ -26,7 +27,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Category)
+            @Html.DisplayFor(modelItem => item.CategoryID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Start)
@@ -43,3 +44,4 @@
 }
 
 </table>
+</div>
